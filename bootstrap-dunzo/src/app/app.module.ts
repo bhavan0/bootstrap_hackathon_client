@@ -9,6 +9,9 @@ import { DashBoardComponent } from './feature/dash-board/dash-board.component';
 import { UploadImageComponent } from './feature/upload-image/upload-image.component';
 import { AboutComponent } from './feature/about/about.component';
 import { ContactComponent } from './feature/contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ImageService } from './services/image.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,11 @@ import { ContactComponent } from './feature/contact/contact.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
