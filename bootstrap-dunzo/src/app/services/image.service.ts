@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,29 +7,34 @@ import { Observable } from 'rxjs';
 })
 export class ImageService {
 
-  SERVER_URL: string = "http://localhost:3000";
+  SERVER_URL = 'https://localhost:44322/api/image';
   constructor(private httpClient: HttpClient) { }
 
-  public upload(data, userId) {
-    let uploadURL = `${this.SERVER_URL}/auth/${userId}/avatar`;
+  httpOtions = {
+    // Set the format of data required from the API
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
-    return this.httpClient.post<any>(uploadURL, data, {
-      reportProgress: true,
-      observe: 'events'
-    }).pipe(map((event) => {
+  public upload(data) {
+    data = data.slice(23);
 
-      switch (event.type) {
+    const data2: JsonDto = {
+      ImageBit: data
+    };
 
-        case HttpEventType.UploadProgress:
-          const progress = Math.round(100 * event.loaded / event.total);
-          return { status: 'progress', message: progress };
+    const uploadURL = `${this.SERVER_URL}/parse`;
 
-        case HttpEventType.Response:
-          return event.body;
-        default:
-          return `Unhandled event: ${event.type}`;
-      }
-    })
-    );
+    return this.httpClient.post<any>(uploadURL, data2, this.httpOtions);
   }
+<<<<<<< HEAD
+=======
+
+  public getAll(): Observable<Blob> {
+    return this.httpClient.get(this.SERVER_URL, { responseType: 'blob' });
+  }
+>>>>>>> 9e681a18729165e28c84e890d65a46f3ed8d7f41
+}
+
+export class JsonDto {
+  ImageBit: String;
 }
