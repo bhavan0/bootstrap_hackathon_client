@@ -7,14 +7,7 @@
     {{ uploadResponse.message }}
   </div>
   <div *ngIf="uploadResponse.status === 'progress'">
-<<<<<<< HEAD
     <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-=======
-
-
-    <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0"
-      aria-valuemax="100">
->>>>>>> 9e681a18729165e28c84e890d65a46f3ed8d7f41
       {{uploadResponse.message}}%
     </div>
 

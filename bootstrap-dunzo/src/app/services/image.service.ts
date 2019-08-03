@@ -26,13 +26,10 @@ export class ImageService {
 
     return this.httpClient.post<any>(uploadURL, data2, this.httpOtions);
   }
-<<<<<<< HEAD
-=======
 
   public getAll(): Observable<Blob> {
     return this.httpClient.get(this.SERVER_URL, { responseType: 'blob' });
   }
->>>>>>> 9e681a18729165e28c84e890d65a46f3ed8d7f41
 }
 
 export class JsonDto {

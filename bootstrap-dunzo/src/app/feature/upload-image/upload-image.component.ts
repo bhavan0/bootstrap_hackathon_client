@@ -40,17 +40,11 @@ export class UploadImageComponent implements OnInit {
   onSubmit() {
     const formData = new FormData();
     formData.append('file', this.form.get('billImage').value);
-<<<<<<< HEAD
-    this.uploadService.upload(formData.get('file'), this.userId).subscribe(
-      (res) => this.uploadResponse = res,
-      (err) => this.error = err
-=======
 
     this.uploadService.upload(this.selectedFile).subscribe((data) => {
       console.log('data submitted');
       console.log(data);
     }
->>>>>>> 9e681a18729165e28c84e890d65a46f3ed8d7f41
     );
   }
     
