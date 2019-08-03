@@ -1,4 +1,4 @@
-<h1>Upload your Bill!</h1>
+<h2>Upload your Bill!</h2>
 <div>
   <div *ngIf="error">
     {{ error.message }}
@@ -7,20 +7,22 @@
     {{ uploadResponse.message }}
   </div>
   <div *ngIf="uploadResponse.status === 'progress'">
-
-
     <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
       {{uploadResponse.message}}%
     </div>
 
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-    <input type="file" name="billImage" (change)="onFileChange($event)" />
-    <button type="submit">Upload</button>
-
+  <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">     
+    <div class="offset-4 col-lg-4 custom-file">
+      <input type="file" class="custom-file-input" accept="image/*" name="billImage" (change)="onFileChange($event)">
+      <label class="custom-file-label" for="billImage">Choose file</label>
+    </div>
+    <div class="col-lg-2">
+      <button class="btn btn-secondary">Upload</button>
+    </div>
   </form>
+
   <div class="image-container">
     <div class="selected-Image">
       <img *ngIf="selectedFile" [src]="selectedFile" />
@@ -28,5 +30,8 @@
     <div class="image-text">
       <img  *ngIf="selectedFile" [src]="selectedFile"/>
     </div>
+  </div>
+  <div>
+    <button class="btn btn-success btn-lg" id="save">Save</button>
   </div>
 </div>

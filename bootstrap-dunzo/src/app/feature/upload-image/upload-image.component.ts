@@ -24,7 +24,8 @@ export class UploadImageComponent implements OnInit {
     });
   }
   onFileChange(event) {
-    if (event.target.files.length > 0) {
+    if (event.target.files.length > 0) {  
+  
       const file = event.target.files[0];
       this.form.get('billImage').setValue(file);
       var reader = new FileReader();
@@ -39,10 +40,10 @@ export class UploadImageComponent implements OnInit {
   onSubmit() {
     const formData = new FormData();
     formData.append('file', this.form.get('billImage').value);
-
-    this.uploadService.upload(formData, this.userId).subscribe(
+    this.uploadService.upload(formData.get('file'), this.userId).subscribe(
       (res) => this.uploadResponse = res,
       (err) => this.error = err
     );
   }
+    
 }

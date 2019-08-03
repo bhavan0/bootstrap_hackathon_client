@@ -12,9 +12,6 @@ export class DashBoardComponent implements OnInit {
 
 
   ngOnInit() {
-    this.imageService.getAll().subscribe(x => {
-      
-    });
   }
 
 }

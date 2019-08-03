@@ -3,15 +3,19 @@
 }
 
 .selected-Image {
-border: rebeccapurple 2px solid;
-margin: 10px 10px;
-height: 500px;
+border: #33995587 2px solid;
+margin: 10px 150px;
+height: 450px;
 width: 500px;
 }
 
 .image-text {
     margin: 10px 10px;
-    border: rebeccapurple 2px solid;
-    height: 500px;
+    border: #33995587 2px solid;
+    height: 450px;
     width: 500px;
+}
+
+#save{
+    margin-right: 30px;
 }

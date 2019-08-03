@@ -33,8 +33,4 @@ export class ImageService {
     })
     );
   }
-
-  public getAll(): Observable<Blob> {
-    return this.httpClient.get(this.SERVER_URL, {responseType: 'blob'});
-  }
 }
