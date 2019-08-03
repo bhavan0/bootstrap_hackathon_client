@@ -29,8 +29,13 @@
     </div>    
     <div class="image-text">
       <!-- <img style="max-height:450px" *ngIf="selectedFile" [src]="selectedFile" /> -->
-      <div style="max-height:440px; padding-top:10px">
-        {{data }}
+      <div *ngIf="productsInfoAfterUpload?.length >0"  style="max-height:440px; padding-top:10px">
+          <ul>
+              <li *ngFor="let item of productsInfoAfterUpload;">
+                 {{item}}
+              </li>
+            </ul>
+            Total Price: {{totalPrice}}
       </div>
     </div>    
   </div>

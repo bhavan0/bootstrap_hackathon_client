@@ -16,7 +16,8 @@ export class UploadImageComponent implements OnInit {
 
   selectedFile: any;
 
-  response: any;
+  productsInfoAfterUpload = [];
+  totalPrice: any;
   constructor(private formBuilder: FormBuilder,
     private uploadService: ImageService) { }
 
@@ -44,7 +45,10 @@ export class UploadImageComponent implements OnInit {
     formData.append('file', this.form.get('billImage').value);
 
     this.uploadService.upload(this.selectedFile).subscribe((data) => {
-      this.response = data;
+      for (let ob of Object.entries(data.products)) {
+        this.productsInfoAfterUpload.push(ob[0] + " - "+ob[1]);
+      }
+      this.totalPrice = data.totalPrice;
       console.log('data submitted');
       console.log(data);
     }
