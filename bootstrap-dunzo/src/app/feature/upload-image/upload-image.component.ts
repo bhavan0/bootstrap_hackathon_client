@@ -15,6 +15,8 @@ export class UploadImageComponent implements OnInit {
   uploadResponse = { status: '', message: '', filePath: '' };
 
   selectedFile: any;
+
+  response: any;
   constructor(private formBuilder: FormBuilder,
     private uploadService: ImageService) { }
 
@@ -25,8 +27,8 @@ export class UploadImageComponent implements OnInit {
   }
   onFileChange(event) {
     if (event.target.files.length > 0) {  
-  
       const file = event.target.files[0];
+      document.getElementsByClassName('custom-file-label')[0].innerHTML = file.name;
       this.form.get('billImage').setValue(file);
       var reader = new FileReader();
       reader.onload = (event: any) => {
@@ -42,6 +44,7 @@ export class UploadImageComponent implements OnInit {
     formData.append('file', this.form.get('billImage').value);
 
     this.uploadService.upload(this.selectedFile).subscribe((data) => {
+      this.response = data;
       console.log('data submitted');
       console.log(data);
     }

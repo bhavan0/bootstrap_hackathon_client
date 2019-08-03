@@ -19,17 +19,20 @@
       <label class="custom-file-label" for="billImage">Choose file</label>
     </div>
     <div class="col-lg-2">
-      <button class="btn btn-secondary">Upload</button>
-    </div>
+        <button class="btn btn-secondary">upload</button>
+      </div>    
   </form>
 
   <div class="image-container">
     <div class="selected-Image">
-      <img *ngIf="selectedFile" [src]="selectedFile" />
-    </div>
+      <img style="max-height:440px; padding-top:10px" *ngIf="selectedFile" [src]="selectedFile" />
+    </div>    
     <div class="image-text">
-      <img *ngIf="selectedFile" [src]="selectedFile" />
-    </div>
+      <!-- <img style="max-height:450px" *ngIf="selectedFile" [src]="selectedFile" /> -->
+      <div style="max-height:440px; padding-top:10px">
+        {{data }}
+      </div>
+    </div>    
   </div>
   <div>
     <button class="btn btn-success btn-lg" id="save">Save</button>
