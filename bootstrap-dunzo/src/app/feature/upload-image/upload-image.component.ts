@@ -19,6 +19,7 @@ export class UploadImageComponent implements OnInit {
 
   productsInfoAfterUpload = [];
   totalPrice: any;
+  uploadedImage = false;
 
 
   // Save the Data into the DB
@@ -58,6 +59,7 @@ export class UploadImageComponent implements OnInit {
         this.productsInfoAfterUpload.push(ob[0] + ' - ' + ob[1]);
       }
       this.totalPrice = data.totalPrice;
+      this.uploadedImage = true;
       console.log('data submitted');
       console.log(data);
     }

@@ -31,18 +31,21 @@
     <div class="image-text">
       <!-- <img style="max-height:450px" *ngIf="selectedFile" [src]="selectedFile" /> -->
       <div style="max-height:440px; padding-top:10px">
-        <div  *ngIf="productsInfoAfterUpload?.length >0" >
-            <div *ngFor="let item of productsInfoAfterUpload">
-                {{item}}
-            </div>        
+        <div *ngIf="productsInfoAfterUpload?.length >0">
+          <div *ngFor="let item of productsInfoAfterUpload">
+            {{item}}
+          </div>
         </div>
-          
+
         <div *ngIf="totalPrice">
           Total Price: {{totalPrice}}
         </div>
       </div>
-      <div *ngIf="!productsInfoAfterUpload?.length >0">
+      <div *ngIf="!productsInfoAfterUpload?.length > 0 && uploadedImage">
         <p>Please Input Clear Pic</p>
+      </div>
+      <div *ngIf="!productsInfoAfterUpload?.length > 0">
+        <p>Parsed Image data will be shown here</p>
       </div>
     </div>
   </div>
