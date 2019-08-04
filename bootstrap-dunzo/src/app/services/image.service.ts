@@ -37,6 +37,11 @@ export class ImageService {
     const saveURL = `${this.SERVER_URL}/save`;
     return this.httpClient.post<any>(saveURL, data);
   }
+
+  public getAllData(): Observable<any> {
+    const uploadUrl = `${this.SERVER_URL}/getAllData`;
+    return this.httpClient.get(uploadUrl);
+  }
 }
 
 export class JsonDto {

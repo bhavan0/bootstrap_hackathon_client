@@ -11,6 +11,7 @@ import { ContactComponent } from './feature/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageService } from './services/image.service';
+import { StoreDataComponent } from './feature/store-data/store-data.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ImageService } from './services/image.service';
     HeaderComponent,
     DashBoardComponent,
     UploadImageComponent,
-    ContactComponent
+    ContactComponent,
+    StoreDataComponent
   ],
   imports: [
     BrowserModule,

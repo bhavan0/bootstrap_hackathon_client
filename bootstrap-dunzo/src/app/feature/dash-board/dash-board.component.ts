@@ -23,6 +23,4 @@ export class DashBoardComponent implements OnInit {
       this.noOfBillsUploaded = data.noOfBills;
     });
   }
-
-
 }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashBoardComponent } from './feature/dash-board/dash-board.component';
 import { UploadImageComponent } from './feature/upload-image/upload-image.component';
 import { ContactComponent } from './feature/contact/contact.component';
+import { StoreDataComponent } from './feature/store-data/store-data.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'store-data',
+    component: StoreDataComponent
   }
 ];
 
