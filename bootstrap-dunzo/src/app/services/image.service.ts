@@ -27,8 +27,15 @@ export class ImageService {
     return this.httpClient.post<any>(uploadURL, data2, this.httpOtions);
   }
 
-  public getAll(): Observable<Blob> {
-    return this.httpClient.get(this.SERVER_URL, { responseType: 'blob' });
+  public getAll(): Observable<any> {
+
+    const uploadUrl = `${this.SERVER_URL}/metadata`;
+    return this.httpClient.get(uploadUrl);
+  }
+
+  public saveData(data: any): Observable<any> {
+    const saveURL = `${this.SERVER_URL}/save`;
+    return this.httpClient.post<any>(saveURL, data);
   }
 }
 

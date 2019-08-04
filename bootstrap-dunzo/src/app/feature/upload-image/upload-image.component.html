@@ -7,39 +7,46 @@
     {{ uploadResponse.message }}
   </div>
   <div *ngIf="uploadResponse.status === 'progress'">
-    <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+    <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0"
+      aria-valuemax="100">
       {{uploadResponse.message}}%
     </div>
 
   </div>
 
-  <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">     
+  <form class="row" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="offset-4 col-lg-4 custom-file">
       <input type="file" class="custom-file-input" accept="image/*" name="billImage" (change)="onFileChange($event)">
       <label class="custom-file-label" for="billImage">Choose file</label>
     </div>
     <div class="col-lg-2">
-        <button class="btn btn-secondary">upload</button>
-      </div>    
+      <button class="btn btn-secondary">Fetch Data</button>
+    </div>
   </form>
 
   <div class="image-container">
     <div class="selected-Image">
       <img style="max-height:440px; padding-top:10px" *ngIf="selectedFile" [src]="selectedFile" />
-    </div>    
+    </div>
     <div class="image-text">
       <!-- <img style="max-height:450px" *ngIf="selectedFile" [src]="selectedFile" /> -->
-      <div *ngIf="productsInfoAfterUpload?.length >0"  style="max-height:440px; padding-top:10px">
-          <ul>
-              <li *ngFor="let item of productsInfoAfterUpload;">
-                 {{item}}
-              </li>
-            </ul>
-            Total Price: {{totalPrice}}
+      <div style="max-height:440px; padding-top:10px">
+        <div  *ngIf="productsInfoAfterUpload?.length >0" >
+            <div *ngFor="let item of productsInfoAfterUpload">
+                {{item}}
+            </div>        
+        </div>
+          
+        <div *ngIf="totalPrice">
+          Total Price: {{totalPrice}}
+        </div>
       </div>
-    </div>    
+      <div *ngIf="!productsInfoAfterUpload?.length >0">
+        <p>Please Input Clear Pic</p>
+      </div>
+    </div>
   </div>
   <div>
-    <button class="btn btn-success btn-lg" id="save">Save</button>
+    <button class="btn btn-success btn-lg" id="save" (click)="save()">Save</button>
   </div>
 </div>
